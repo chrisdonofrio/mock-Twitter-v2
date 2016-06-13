@@ -16,3 +16,18 @@ app.controller('mainController', function($scope){
 		$scope.newPost = {post_author: '', post_text: '', date_posted: ''};
 	};
 });
+
+// reuse one controller to access two different functions (login and reg)
+app.controller('authController', function($scope){
+	$scope.user = {username: '', password: ''};
+	// error message to user for failed auth
+	$scope.error_message = '';
+
+	$scope.login = function(){
+		// placeholder for auth implementation
+		$scope.error_message = 'login request for ' $scope.user.username;
+	};
+	$scope.register = function(){
+		$scope.error_message = 'registration request for ' $scope.user.username;
+	};
+})
