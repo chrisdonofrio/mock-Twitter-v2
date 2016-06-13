@@ -2,9 +2,11 @@
 <html>
 <head>
 	<title>Post-It!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="js/chirpApp.js"></script>
 </head>
-<body>
-	<div id='main'>
+<body ng-app="postItApp">
+	<div id='main' ng-controller="mainController">
 		<form>
 			<input type="text" placeholder="Your name" />
 			<textarea required maxlength="140" rows="3" placeholder="Enter your deepest thoughts here"></textarea>
