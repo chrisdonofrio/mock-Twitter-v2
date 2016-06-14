@@ -1,4 +1,23 @@
-var app = angular.module('postItApp', []);
+var app = angular.module('postItApp', ['ngRoute']);
+
+app.config(function($routeProvider){
+	$routeProvider
+	// post display
+	.when('/', {
+		templateURL: 'main.html',
+		controller: 'mainController'
+	})
+		// login display
+	.when('/login', {
+		templateURL: 'login.html',
+		controller: 'authController'
+	})
+		// registration display
+	.when('/register', {
+		templateURL: 'register.html',
+		controller: 'authController'
+	});
+});
 
 app.controller('mainController', function($scope){
 	// attach 'posts' array to $scope to store created posts

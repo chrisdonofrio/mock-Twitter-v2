@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Post-It!</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-	<script src="javascripts/postItApp.js"></script>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="stylesheets/style.css">
-</head>
-<body ng-app="postItApp">
-	<div id='main' ng-controller="mainController">
-		<div class="col-md-offset-2 col-md-8">
-			<div class="clearfix">
-				<form ng-Submit="post()">
-					<input required type="text" class="form-control" placeholder="Your name" ng-model="newPost.post_author" />
-					<textarea required class="form-control" maxlength="140" rows="3" placeholder="Enter your deepest thoughts here" ng-model="newPost.post_text">
-					</textarea>
-					<input class="btn submit-btn pull-right" type="submit" value="Post-It!" />
-				</form>
-				<div id="post-it-stream">
-					<h4>Your Post-Its</h4>
-						<div class="post" ng-repeat="post in posts | orderBy:'date_posted':true" ng-class-odd="'odd'" ng-class-even="'even'">
-							<p>{{post.post_text}}</p>
-							<small>Posted by @{{post.post_author}}</small>
-							<small class="pull-right">{{post.date_posted | date:"h:mma 'on' MMM d, y"}}</small>
-						</div>
-				</div>
-		</div>
-	</div>
-</body>
-</html>
+<div class="clearfix">
+    <form ng-Submit="post()">
+        <input required type="text" class="form-control" placeholder="Your name" ng-model="newPost.post_author" />
+        <textarea required class="form-control" maxlength="140" rows="3" placeholder="Enter your deepest thoughts here" ng-model="newPost.post_text">
+        </textarea>
+        <input class="btn submit-btn pull-right" type="submit" value="Post-It!" />
+    </form>
+    <div id="post-it-stream">
+        <h4>Your Post-Its</h4>
+        <div class="post" ng-repeat="post in posts | orderBy:'date_posted':true" ng-class-odd="'odd'" ng-class-even="'even'">
+            <p>{{post.post_text}}</p>
+            <small>Posted by @{{post.post_author}}</small>
+            <small class="pull-right">{{post.date_posted | date:"h:mma 'on' MMM d, y"}}</small>
+        </div>
+    </div>
+</div>
